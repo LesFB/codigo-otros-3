@@ -8,9 +8,10 @@ const productos = [
   {nombre: "Zapato rojo", tipo: "zapato", color: "rojo", img: "./zapato-rojo.jpg"}
 ]
 
-const li = document.getElementsByName("lista-de-productos")
-const $i = document.querySelector('.input');
+const lista = document.getElementsByClassName("lista-de-productos")[0]
+const inp = document.getElementsByTagName("input")[0]; 
 
+function displayProductos(productos){
 for (let i = 0; i < productos.length; i++) {
   var d = document.createElement("div")
   d.classList.add("producto")
@@ -24,19 +25,20 @@ for (let i = 0; i < productos.length; i++) {
 
   d.appendChild(ti)
   d.appendChild(imagen)
-
-  li.appendChild(d)
+  /*document.body.appendChild(d);*/
+  lista.appendChild(d)
 }
-
+}
 displayProductos(productos)
-const botonDeFiltro = document.querySelector("button");
+
+const botonDeFiltro = document.getElementsByTagName("button")[0];
 
 botonDeFiltro.onclick = function() {
-  while (li.firstChild) {
-    li.removeChild(li.firstChild);
+  while (lista.firstChild) {
+    lista.removeChild(lista.firstChild);
   }
 
-  const texto = $i.value;
+  const texto = inp.value;
   console.log(texto);
   const productosFiltrados = filtrado(productos, texto );
 
@@ -54,7 +56,8 @@ botonDeFiltro.onclick = function() {
     d.appendChild(ti)
     d.appendChild(imagen)
   
-    li.appendChild(d)
+    lista.appendChild(d)
+    
   }
 }
 

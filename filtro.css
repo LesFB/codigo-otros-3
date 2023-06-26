@@ -4,7 +4,7 @@ input {
   font-size: 18px;
 }
 
-#lista-de-productos {
+#lista-de-productos{
   display: flex
 }
 
